@@ -1,0 +1,4 @@
+os
+google-genai
+python-dotenv
+Pillow
