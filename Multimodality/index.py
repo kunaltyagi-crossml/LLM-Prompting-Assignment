@@ -22,21 +22,21 @@ def run_experiment(
     top_p,
     top_k
 ):
-    image = Image.open(image.png)
+    image = Image.open(image_path)
+
+    from google.genai import types
 
     response = client.models.generate_content(
-        model="gemini-1.5-flash",
-        contents=[
-            image,
-            prompt_text
-        ],
-        generation_config={
-            "temperature": temperature,
-            "top_p": top_p,
-            "top_k": top_k,
-            "max_output_tokens": 300
-        }
-    )
+            model="gemini-2.5-flash",
+            contents=[image, prompt_text],
+            config=types.GenerateContentConfig(
+                temperature=temperature,
+                top_p=top_p,
+                top_k=top_k,
+                max_output_tokens=300
+            )
+        )
+
 
     return response.text
 
@@ -54,7 +54,7 @@ Preferences:
 
 print("\n--- Interior Design Output ---")
 print(run_experiment(
-    "images/image.png",
+    "Images/room.png",
     room_prompt,
     temperature=0.6,
     top_p=0.95,
@@ -72,12 +72,14 @@ Describe each layer and how data flows.
 
 print("\n--- Diagram Explanation Output ---")
 print(run_experiment(
-    "images/neural_network.png",
+    "Images/neural_network.png",
     diagram_prompt,
     temperature=0.2,
     top_p=0.9,
     top_k=40
 ))
+
+
 
 
 # =======================
@@ -93,9 +95,10 @@ Constraints:
 
 print("\n--- Recipe Output ---")
 print(run_experiment(
-    "images/pasta.jpg",
+    "Images/pasta.png",
     food_prompt,
     temperature=0.7,
     top_p=0.95,
     top_k=60
 ))
+
