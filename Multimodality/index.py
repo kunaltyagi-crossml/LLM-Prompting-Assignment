@@ -52,7 +52,7 @@ Preferences:
 
 print("\n--- Interior Design Output ---")
 print(run_experiment(
-    "Images/room.png",
+    "Images/interior.png",
     room_prompt,
     temperature=0.6,
     top_p=0.95,
