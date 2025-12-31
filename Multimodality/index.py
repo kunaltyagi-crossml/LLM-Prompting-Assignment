@@ -63,8 +63,9 @@ print(run_experiment(
 # TASK 2 — DIAGRAM EXPLANATION
 
 diagram_prompt = """
-Explain this neural network diagram to a beginner software engineer.
-Describe each layer and how data flows.
+Explain the given flowchart diagram.
+Describe its components, interpret the process,
+and explain how data flows step by step.
 """
 
 print("\n--- Diagram Explanation Output ---")
@@ -82,7 +83,7 @@ print(run_experiment(
 # TASK 3 — FOOD RECIPE
 
 food_prompt = """
-Create a healthy vegetarian recipe inspired by this dish.
+Create a healthy food inspired by the Indian sweet **Rasgulla**.
 Constraints:
 - No dairy
 - High protein
