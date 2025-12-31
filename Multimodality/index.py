@@ -10,9 +10,8 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found. Check your .env file.")
 
-# ---------------------------
 # Initialize Gemini Client
-# ---------------------------
+
 client = genai.Client(api_key=api_key)
 
 def run_experiment(
@@ -33,7 +32,7 @@ def run_experiment(
                 temperature=temperature,
                 top_p=top_p,
                 top_k=top_k,
-                max_output_tokens=300
+                max_output_tokens=2000
             )
         )
 
@@ -41,9 +40,8 @@ def run_experiment(
     return response.text
 
 
-# =======================
 # TASK 1 — INTERIOR DESIGN
-# =======================
+
 room_prompt = """
 Suggest a modern minimalist interior design for this room.
 Preferences:
@@ -58,13 +56,12 @@ print(run_experiment(
     room_prompt,
     temperature=0.6,
     top_p=0.95,
-    top_k=50
+    top_k=100
 ))
 
 
-# =======================
 # TASK 2 — DIAGRAM EXPLANATION
-# =======================
+
 diagram_prompt = """
 Explain this neural network diagram to a beginner software engineer.
 Describe each layer and how data flows.
@@ -72,7 +69,7 @@ Describe each layer and how data flows.
 
 print("\n--- Diagram Explanation Output ---")
 print(run_experiment(
-    "Images/neural_network.png",
+    "Images/flowchart.png",
     diagram_prompt,
     temperature=0.2,
     top_p=0.9,
@@ -82,9 +79,8 @@ print(run_experiment(
 
 
 
-# =======================
 # TASK 3 — FOOD RECIPE
-# =======================
+
 food_prompt = """
 Create a healthy vegetarian recipe inspired by this dish.
 Constraints:
@@ -95,7 +91,7 @@ Constraints:
 
 print("\n--- Recipe Output ---")
 print(run_experiment(
-    "Images/pasta.png",
+    "Images/rasgulla.png",
     food_prompt,
     temperature=0.7,
     top_p=0.95,
