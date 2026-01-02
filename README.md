@@ -1,86 +1,69 @@
 # LLM-Prompting-Assignment
-LLM Integration Assignment focused on text generation, prompt engineering, and parameter tuning using a generative AI API such as Gemini.
 
-
-
-📘 Part 1 — Text Generation
-What happens in this part?
-
-In this section, the AI model generates text-only responses based on different prompts.
-The goal is to understand how changing generation parameters affects the AI’s output.
-
-📝 Prompts Used
-
-The following three types of prompts are used:
-
-Blog Introduction
-→ Introduction explaining Git version control for beginners
-
-Product Description
-→ Description of wireless noise-cancelling headphones using bullet points
-
-Short Science-Fiction Story
-→ Story generated from a single starting sentence
-
-⚙️ Parameters Explained
-Parameter	Meaning
-temperature	Controls creativity and randomness
-top_p	Controls diversity of word selection
-max_tokens	Maximum length of the generated text
-🔍 Example Behavior
-
-Low temperature → More factual, safe, and consistent output
-
-High temperature → More creative, imaginative, and varied output
-
-🎯 Learning Outcome
-
-By comparing outputs with different parameter values, we clearly understand how AI behavior changes in terms of creativity, repetition, and consistency.
-
-📙 Part 2 — Multimodal Prompting (Image + Text)
-What is Multimodal AI?
-
-Multimodal AI can understand both images and text together, allowing richer and more contextual responses.
-
-🧪 Tasks Performed
-🏠 Interior Design
-
-Input: Room image + design preferences
-
-Output: Modern, budget-friendly interior design suggestions
-
-🧠 Diagram Explanation
-
-Input: Neural network diagram image
-
-Output: Beginner-friendly explanation of how the network works
-
-🍲 Food Recipe Generation
-
-Input: Food image + dietary constraints
-
-Output: Healthy vegetarian recipe suitable for an Indian diet
-
-⚙️ Parameters Tuned
-
-temperature
-
-top_p
-
-top_k
-
-Each parameter is adjusted to observe changes in creativity, accuracy, and consistency.
-
-🎯 Learning Outcome
-
-This section demonstrates how image context, text prompts, and parameter tuning together influence the quality and relevance of AI responses.
-
-📊 Overall Learnings
-
-Low creativity → More accurate and consistent responses
-
-High creativity → More diverse and imaginative responses
-
-Well-written prompts → Better AI outputs
-
-Multimodal AI → Better understanding compared to text-only AI
+A hands-on assignment focused on integrating Google Gemini AI. Includes API implementation, response handling, and multimodal data processing.
+## Project Overview
+The project consists of **two main experiments**:
+1. **Text Generation Experiments**
+   - Blog introduction generation
+   - Product description generation
+   - Short story generation
+   - Parameter tuning for creativity vs determinism
+2. **Multimodal Generation Experiments**
+   - Image + text prompts
+   - Interior design suggestions
+   - Diagram explanation
+   - Food recipe generation from images
+---
+##  Tech Stack
+- **Language:** Python 3.10+
+- **LLM:** Google Gemini
+- **SDK:** `google-genai`
+- **Image Processing:** Pillow (PIL)
+- **Environment Management:** `python-dotenv`
+---
+##  Installation
+1. Clone the repository
+    ```bash
+        git clone https://github.com/kunaltyagi-crossml/LLM-Prompting-Assignment.git
+        cd gemini-generation-experiments
+2. Create and activate a virtual environment (recommended)
+    ```bash
+        python -m venv venv
+        source venv/bin/activate
+3. Install dependencies
+    ```bash
+        pip install google-genai pillow python-dotenv
+4.  Set up your GEMINI_API_KEY:
+    
+    Create a file named .env in the root directory of this project. Add the following line to the .env file, replacing YOUR_API_KEY with your actual Gemini API key:
+      
+        api_key = os.getenv("GEMINI_API_KEY")
+        client = genai.Client(api_key=api_key)
+5. Usage
+    1. Text Generation Experiment
+      This script explores how different prompts and parameters affect generated text.
+          python Assignment1.py
+      Prompts Used:
+        -  Technical blog introduction
+        -  Product description from bullet points
+        -  Short story generation
+      Parameters Tuned:
+        -  temperature
+        -  top_p
+        -  max_output_tokens
+     2. Multimodal (Image + Text) Generation
+        This script uses images + prompts to generate contextual responses.
+            python Assignment2.py
+     Examples:
+        -  Interior design suggestions from a room image
+        -  Explaining a flowchart step
+        -  Creating a vegan fusion recipe from food images
+     Parameters Tuned:
+        -  temperature
+        -  top_p
+        -  top_k
+## Learning Outcomes
+  -  Understand the impact of temperature on creativity
+  -  Compare top_p vs top_k sampling
+  -  Learn how Gemini handles multimodal inputs
+  -  Build intuition for prompt engineering
